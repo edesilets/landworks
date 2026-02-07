@@ -1,5 +1,5 @@
 import React from 'react';
-import landworksColor from './assets/landworks-color.png';
+import landworksColor from '../assets/landworks-color.png';
 
 export function LandingPage({ }: {}) {
   return (
