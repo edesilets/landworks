@@ -23,30 +23,39 @@ const ServicesPage = () => {
 				</div>
 
 				<div className="grid md:grid-cols-3 gap-6">
-					<div className="bg-blue-50 rounded-lg p-6">
+					<div className="bg-white rounded-lg p-6">
 						<h3 className="text-xl font-semibold text-blue-800 mb-2">
-							Design
+							Material Delivery
 						</h3>
 						<p className="text-gray-600">
-							Creative landscape design tailored to your needs and preferences.
+							Gravel, Peastone, loom, you name it we deliver it. 14K per load
+						</p>
+					</div>
+
+					<div className="bg-white rounded-lg p-6">
+						<h3 className="text-xl font-semibold text-blue-800 mb-2">
+							Land Clearing
+						</h3>
+						<p className="text-gray-600">
+							Need trees removed? Ground leveled? Over grown shrubs. We've got you covered
 						</p>
 					</div>
 					
 					<div className="bg-green-50 rounded-lg p-6">
 						<h3 className="text-xl font-semibold text-green-800 mb-2">
-							Installation
+							Site Preperations
 						</h3>
 						<p className="text-gray-600">
-							Expert installation of plants, hardscapes, and outdoor features.
+							Need soil prepeed or land leveled before a cement pad is poured?
 						</p>
 					</div>
 					
-					<div className="bg-amber-50 rounded-lg p-6">
-						<h3 className="text-xl font-semibold text-amber-800 mb-2">
-							Maintenance
+					<div className="bg-yellow-50 rounded-lg p-6">
+						<h3 className="text-xl font-semibold text-black-800 mb-2">
+							Snow Removal
 						</h3>
 						<p className="text-gray-600">
-							Regular maintenance to keep your landscape looking its best.
+							Need your driveway, or parking lot cleared? We can get that done in a couple 8 foot swipes!
 						</p>
 					</div>
 				</div>
