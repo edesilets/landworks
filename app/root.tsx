@@ -1,16 +1,13 @@
 import {
 	isRouteErrorResponse,
-	Links,
-	Meta,
 	Outlet,
-	Scripts,
-	ScrollRestoration,
 	useLoaderData
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { UnderConstructionPage } from "./pages/UnderConstructionPage";
+import UnderConstructionLayout from "./layouts/UnderConstructionLayout";
+import RootLayout from "./layouts/RootLayout";
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -37,46 +34,11 @@ export function Layout({ children } : { children: React.ReactNode }) {
 
 	// If under construction, show only the construction page
 	if (isUnderConstruction) {
-		return (
-			<html lang="en">
-				<head>
-					<meta charSet="utf-8" />
-					<meta name="viewport" content="width=device-width, initial-scale=1" />
-					<meta name="description" content="DeSilets Landworks - Coming Soon" />
-					<Links />
-				</head>
-				<body>
-					<main>
-						<UnderConstructionPage />
-					</main>
-					{/* <ScrollRestoration /> */}
-					<Scripts />
-				</body>
-			</html>
-		);
+		return (<UnderConstructionLayout />);
 	}
 
 	// Normal layout when site is live
-	return (
-		<html lang="en">
-			<head>
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<meta name="description" content="Desilets Landworks - Professional Landscaping Services" />
-				<meta name="keywords" content="landscaping,landworks,outdoor" />
-				<Meta />
-				<Links />
-				<title>Desilets Landworks</title>
-			</head>
-			<body className="flex flex-col min-h-screen">
-				<main className="flex-grow">
-					{children}
-				</main>
-				<ScrollRestoration />
-				<Scripts />
-			</body>
-		</html>
-	);
+	return (<RootLayout children={children} />);
 }
 
 export default function App() {
