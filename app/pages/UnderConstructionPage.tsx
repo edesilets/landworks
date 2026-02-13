@@ -16,7 +16,7 @@ export function UnderConstructionPage() {
 				</p>
 				
 				<p className="text-gray-500 mb-8">
-					Our new website is coming soon. In the meantime, feel free to reach out to us.
+					In the meantime, feel free to reach out to us.
 				</p>
 				
 				<div className="border-t border-gray-200 pt-8">
