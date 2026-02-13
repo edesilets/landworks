@@ -13,6 +13,11 @@ export function Header() {
 						</Link>
 					</li>
 					<li>
+						<Link to="/services" className="hover:text-black-200 transition">
+							Services
+						</Link>
+					</li>
+					<li>
 						<Link to="/aboutus" className="hover:text-black-200 transition">
 							About Us
 						</Link>
