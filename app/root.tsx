@@ -5,12 +5,12 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { Header } from "./components/layout/Header";
-import { Footer } from "./components/layout/Footer";
+import { UnderConstructionPage } from "./pages/UnderConstructionPage";
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -25,7 +25,38 @@ export const links: Route.LinksFunction = () => [
 	},
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export async function loader({ context }) {
+  return {
+    "UNDER_CONSTRUCTION": (context.cloudflare.env.UNDER_CONSTRUCTION.toLowerCase() === 'true'),
+  };
+}
+
+export function Layout({ children } : { children: React.ReactNode }) {
+	// Access Cloudflare environment variable
+	const isUnderConstruction = useLoaderData<typeof loader>().UNDER_CONSTRUCTION;
+
+	// If under construction, show only the construction page
+	if (isUnderConstruction) {
+		return (
+			<html lang="en">
+				<head>
+					<meta charSet="utf-8" />
+					<meta name="viewport" content="width=device-width, initial-scale=1" />
+					<meta name="description" content="DeSilets Landworks - Coming Soon" />
+					<Links />
+				</head>
+				<body>
+					<main>
+						<UnderConstructionPage />
+					</main>
+					{/* <ScrollRestoration /> */}
+					<Scripts />
+				</body>
+			</html>
+		);
+	}
+
+	// Normal layout when site is live
 	return (
 		<html lang="en">
 			<head>
@@ -38,11 +69,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<title>Desilets Landworks</title>
 			</head>
 			<body className="flex flex-col min-h-screen">
-				<Header />
 				<main className="flex-grow">
-				{children}
+					{children}
 				</main>
-				<Footer />
 				<ScrollRestoration />
 				<Scripts />
 			</body>
