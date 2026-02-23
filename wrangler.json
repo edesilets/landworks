@@ -3,15 +3,15 @@
 	"name": "landworks",
 	"main": "./workers/app.ts",
 	"compatibility_date": "2025-10-08",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"observability": {
-		"enabled": true
+		"enabled": true,
+		"head_sampling_rate": 1 // 0.1 - 10% of requests are logged
 	},
 	"upload_source_maps": true,
-	"vars": {
-		"ENVIRONMENT": "production",
-		"API_URL": "https://api.desiletslandworks.com"
-	},
+	"workers_dev": false,
 	"routes": [
 		{
 			"pattern": "desiletslandworks.com/*",
@@ -22,10 +22,20 @@
 			"zone_name": "desiletslandworks.com"
 		}
 	],
+	"vars": {
+		"ENVIRONMENT": "production",
+		"API_URL": "https://api.desiletslandworks.com"
+	},
 	"env": {
+		"dev": {
+			"route": "dev.desiletslandworks.com",
+		},
 		"staging": {
 			"name": "landworks-staging",
-			"workers_dev": true,
+			"route": {
+				"pattern": "staging.desiletslandworks.com/*",
+				"zone_name": "desiletslandworks.com"
+			},
 			"vars": {
 				"ENVIRONMENT": "staging",
 				"API_URL": "https://staging-api.desiletslandworks.com"
