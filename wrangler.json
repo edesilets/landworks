@@ -9,7 +9,27 @@
 	},
 	"upload_source_maps": true,
 	"vars": {
-		"VALUE_FROM_CLOUDFLARE": "Land Works",
-		"UNDER_CONSTRUCTION": "true"
+		"ENVIRONMENT": "production",
+		"API_URL": "https://api.desiletslandworks.com"
+	},
+	"routes": [
+		{
+			"pattern": "desiletslandworks.com/*",
+			"zone_name": "desiletslandworks.com"
+		},
+		{
+			"pattern": "www.desiletslandworks.com/*",
+			"zone_name": "desiletslandworks.com"
+		}
+	],
+	"env": {
+		"staging": {
+			"name": "landworks-staging",
+			"workers_dev": true,
+			"vars": {
+				"ENVIRONMENT": "staging",
+				"API_URL": "https://staging-api.desiletslandworks.com"
+			}
+		}
 	}
 }
