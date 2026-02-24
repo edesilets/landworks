@@ -14,32 +14,12 @@
 	"workers_dev": false,
 	"routes": [
 		{
-			"pattern": "desiletslandworks.com/*",
-			"zone_name": "desiletslandworks.com"
-		},
-		{
-			"pattern": "www.desiletslandworks.com/*",
+			"pattern": "staging.desiletslandworks.com/*",
 			"zone_name": "desiletslandworks.com"
 		}
 	],
 	"vars": {
 		"ENVIRONMENT": "production",
-		"API_URL": "https://api.desiletslandworks.com"
-	},
-	"env": {
-		"dev": {
-			"route": "dev.desiletslandworks.com",
-		},
-		"staging": {
-			"name": "landworks-staging",
-			"route": {
-				"pattern": "staging.desiletslandworks.com/*",
-				"zone_name": "desiletslandworks.com"
-			},
-			"vars": {
-				"ENVIRONMENT": "staging",
-				"API_URL": "https://staging-api.desiletslandworks.com"
-			}
-		}
+		"API_URL": "https://api.desiletslandworks.com",
 	}
 }
